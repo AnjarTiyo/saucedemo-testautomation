@@ -1,7 +1,7 @@
 Feature: Authorization
 
   @authorization
-  Scenario Outline: Login functionality
+    Scenario Outline: Login functionality
     Given I am already on Login Page
     When I input "<username>" as username
     And I input "<password>" as password
