@@ -5,7 +5,10 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 @DefaultUrl("https://www.saucedemo.com/inventory.html")
 public class InventoryPage extends PageObject {
@@ -14,8 +17,13 @@ public class InventoryPage extends PageObject {
     private final By availParam = By.className("product_sort_container");
     private final By activeParam = By.className("active_option");
     private final By cartbutton = By.xpath("//*[@id=\"shopping_cart_container\"]/a");
-    private final By cartVal = By.className("Shopping_cart_link");
+    private final By cartVal = By.xpath("//*[@id=\"shopping_cart_container\"]/a/span");
     private final By inventory = By.id("inventory_container");
+
+    public int countItem(){
+        List<WebElement> ammountItem = driver.findElements(By.xpath("//*[contains(@id,'remove') ]"));
+        return ammountItem.size();
+    }
     LoginPage login; //suspected error
 
     public void fullLogin() {
@@ -35,7 +43,7 @@ public class InventoryPage extends PageObject {
     }
 
     public String getParam() {
-        return driver.findElement(activeParam).getAttribute("innerHTML");
+        return driver.findElement(activeParam).getText();
     }
 
     public void addToCart(String item) {
@@ -52,8 +60,8 @@ public class InventoryPage extends PageObject {
         driver.findElement(By.id(idButton)).click();
     }
 
-    public String getCartVal() {
-        return driver.findElement(cartVal).getAttribute("innerHTML");
+    public int getCartVal() {
+        return countItem();
     }
 
     public void clickCart() {
