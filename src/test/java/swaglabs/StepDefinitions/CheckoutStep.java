@@ -5,19 +5,20 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import swaglabs.Pages.CartPage;
-import swaglabs.Pages.CheckoutStepOnePage;
+import swaglabs.Pages.CheckOutPage;
 
-public class CheckoutStepOne {
+public class CheckoutStep {
     CartPage cart;
-    CheckoutStepOnePage cout1;
+    CheckOutPage cout1;
 
     @And("I click Checkout button")
     public void iClickCheckoutButton(){
+        cout1.clickCheckout();
     }
 
     @And("I should redirected to checkout-step-one page")
     public void iShouldRedirectedToCheckoutStepOnePage() {
-        Assert.assertEquals("https://www.saucedemo.com/checkout-step-one.html", cout1.verifyCheckout1());
+        Assert.assertEquals("https://www.saucedemo.com/checkout-step-one.html", cout1.verifyPage());
     }
 
 
@@ -42,5 +43,21 @@ public class CheckoutStepOne {
 
     @Then("I redirected to checkout-step-two page")
     public void iRedirectedToCheckoutStepTwoPage() {
+        Assert.assertEquals("https://www.saucedemo.com/checkout-step-two.html", cout1.verifyPage());
+    }
+
+    @When("I click Finish")
+    public void iClickFinish() {
+        cout1.clickFinish();
+    }
+
+    @Then("I redirected to checkout complete page")
+    public void iRedirectedToCheckoutCompletePage() {
+        Assert.assertEquals("https://www.saucedemo.com/checkout-complete.html", cout1.verifyPage());
+    }
+
+    @And("Fancy Robo-Cowboy appear, yeehaaa!!!")
+    public void fancyRoboCowboyAppearYeehaaa() {
+        cout1.checkoutCompleted();
     }
 }

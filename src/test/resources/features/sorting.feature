@@ -1,5 +1,7 @@
+@sorting
 Feature: Sorting Product
-  @sorting
+  As a customer, i want to sort product listed based on parameter
+
   Scenario Outline: Sorting product with given parameter
     #futher improvement to logged in as <user>
     Given I am already Logged in as "standard_user"

@@ -1,19 +1,48 @@
-Feature: cart management
+Feature: Cart Management
+  As a customer, I want manage which item i want to buy
+
   @cartmanagement @addtocart
-  Scenario: Add 1 item to cart
+  Scenario Outline: Add 1 item to cart
     Given I am already Logged in as "standard_user"
     And I am on Inventory Page
-    When I click Add to Cart on "Sauce Labs Onesie"
-    Then Cart icon should show total ammount of item "added"
+    When I click Add to Cart on "<item>"
+    Then The "remove" button on "<item>" appear
+    Examples:
+      | item                              |
+      | Sauce Labs Backpack               |
+      | Sauce Labs Bike Light             |
+      | Sauce Labs Bolt T-Shirt           |
+      | Sauce Labs Fleece Jacket          |
+      | Sauce Labs Onesie                 |
+      | Test.allTheThings() T-Shirt (Red) |
 
+  Scenario Outline: Remove item
+    Given I am already Logged in as "standard_user"
+    And I am on Inventory Page
+    And I click Add to Cart on "<item>"
+    When I click Remove on "<item>"
+    Then The "Add to cart" button on "<item>" appear
+    Examples:
+      | item                              |
+      | Sauce Labs Backpack               |
+      | Sauce Labs Bike Light             |
+      | Sauce Labs Bolt T-Shirt           |
+      | Sauce Labs Fleece Jacket          |
+      | Sauce Labs Onesie                 |
+      | Test.allTheThings() T-Shirt (Red) |
 
-  Scenario: Verify item added
-    Given I already add item "Sauce Labs Onesie"
+  Scenario Outline: Verify item added
+    Given I am already Logged in as "standard_user"
+    And I am on Inventory Page
+    And I click Add to Cart on "<item>"
     When I click cart button
     Then I should redirected to Cart Page
-    And I get list of added item
-
-  Scenario: Remove item
-    Given I already add item "Sauce Labs Onesie"
-    When I click Remove on "Sauce Labs Onesie"
-    Then Cart icon should show total ammount of item "removed"
+    And I get "<item>" added to cart
+    Examples:
+      | item                              |
+      | Sauce Labs Backpack               |
+      | Sauce Labs Bike Light             |
+      | Sauce Labs Bolt T-Shirt           |
+      | Sauce Labs Fleece Jacket          |
+      | Sauce Labs Onesie                 |
+      | Test.allTheThings() T-Shirt (Red) |
