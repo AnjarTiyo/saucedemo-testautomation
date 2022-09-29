@@ -140,15 +140,15 @@ Project Link: [https://github.com/AnjarTiyo/saucedemo-testautomation](https://gi
 * [Rest Assured](https://github.com/rest-assured/rest-assured)
 * [My Mentor - Fifeka Onanda Wahid](https://id.linkedin.com/in/fifeka-onanda-wahid)
 
-[contributors-shield]: https://img.shields.io/github/contributors/AnjarTiyo/RestAssured-Reqres-Automation.svg?style=for-the-badge
-[contributors-url]: https://github.com/AnjarTiyo/RestAssured-Reqres-Automation/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/AnjarTiyo/RestAssured-Reqres-Automation.svg?style=for-the-badge
-[forks-url]: https://github.com/AnjarTiyo/RestAssured-Reqres-Automation/network/members
-[stars-shield]: https://img.shields.io/github/stars/AnjarTiyo/RestAssured-Reqres-Automation.svg?style=for-the-badge
-[stars-url]: https://github.com/AnjarTiyo/RestAssured-Reqres-Automation/stargazers
-[issues-shield]: https://img.shields.io/github/issues/AnjarTiyo/RestAssured-Reqres-Automation.svg?style=for-the-badge
-[issues-url]: https://github.com/AnjarTiyo/RestAssured-Reqres-Automation/issues
-[license-shield]: https://img.shields.io/github/license/AnjarTiyo/RestAssured-Reqres-Automation.svg?style=for-the-badge
-[license-url]: https://github.com/AnjarTiyo/RestAssured-Reqres-Automation/blob/main/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/AnjarTiyo/saucedemo-testautomation.svg?style=for-the-badge
+[contributors-url]: https://github.com/AnjarTiyo/saucedemo-testautomation/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/AnjarTiyo/saucedemo-testautomation.svg?style=for-the-badge
+[forks-url]: https://github.com/AnjarTiyo/saucedemo-testautomation/network/members
+[stars-shield]: https://img.shields.io/github/stars/AnjarTiyo/saucedemo-testautomation.svg?style=for-the-badge
+[stars-url]: https://github.com/AnjarTiyo/saucedemo-testautomation/stargazers
+[issues-shield]: https://img.shields.io/github/issues/AnjarTiyo/saucedemo-testautomation.svg?style=for-the-badge
+[issues-url]: https://github.com/AnjarTiyo/saucedemo-testautomation/issues
+[license-shield]: https://img.shields.io/github/license/AnjarTiyo/saucedemo-testautomation.svg?style=for-the-badge
+[license-url]: https://github.com/AnjarTiyo/saucedemo-testautomation/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/anjartiyo
