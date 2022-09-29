@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 @DefaultUrl("https://www.saucedemo.com/")
-public class CheckoutStepOnePage extends PageObject {
+public class CheckOutPage extends PageObject {
     @Managed
     WebDriver driver = getDriver();
 
@@ -15,8 +15,11 @@ public class CheckoutStepOnePage extends PageObject {
     private By lastName = By.id("last-name");
     private By zipcode = By.id("postal-code");
     private By contButton = By.id("continue");
+    private By coutButton = By.id("checkout");
+    private By finishBtn = By.id("finish");
+    private By roboCowboy = By.className("pony_express");
 
-    public String verifyCheckout1(){
+    public String verifyPage(){
         return driver.getCurrentUrl();
     }
 
@@ -32,6 +35,15 @@ public class CheckoutStepOnePage extends PageObject {
     }
     public void clickContinue(){
         driver.findElement(contButton).click();
+    }
+    public void clickCheckout(){
+        driver.findElement(coutButton).click();
+    }
+    public void clickFinish(){
+        driver.findElement(finishBtn).click();
+    }
+    public void checkoutCompleted(){
+        driver.findElement(roboCowboy).isDisplayed();
     }
 
 }

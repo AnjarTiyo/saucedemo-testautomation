@@ -14,6 +14,7 @@ public class CartPage extends PageObject {
 
     private By continueShopping = By.id("continue-shopping");
     private By buttonCout = By.id("checkout");
+    private By cartItem = By.className("inventory_item_name");
 
     public void verifyCartPage(){
         Assert.assertEquals("https://www.saucedemo.com/cart.html", driver.getCurrentUrl());
@@ -27,5 +28,8 @@ public class CartPage extends PageObject {
         driver.findElement(buttonCout).click();
     }
 
+    public String verifyCartItem(){
+        return driver.findElement(cartItem).getAttribute("innerHTML");
+    }
 
 }

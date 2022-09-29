@@ -1,7 +1,8 @@
-Feature: checkout
+Feature: Checkout
+  As a customer I want to finish my order
 
   Scenario Outline: Checkout valid order step one
-    Given I click Add to Cart on "Sauce Labs Onesie"
+    Given I already add item "Sauce Labs Onesie"
     And I click cart button
     And I click Checkout button
     And I should redirected to checkout-step-one page
@@ -9,13 +10,11 @@ Feature: checkout
     And I input "<lastName>>" as last name
     And I input "<zipCode>" as Postal Code
     And I click continue
-    Then I redirected to checkout-step-two page
+    Given I redirected to checkout-step-two page
+    When I click Finish
+    Then I redirected to checkout complete page
+    And Fancy Robo-Cowboy appear, yeehaaa!!!
     Examples:
-    | firstName  | lastName   | zipCode |
-    | Anjar      | Ganteng    | 999999   |
+      | firstName  | lastName   | zipCode |
+      | Anjar      | Ganteng    | 999999   |
 
-#  Scenario: Checkout step two
-#    Given I redirected to checkout-step-two page
-#    When I click Finish
-#    Then I redirected to checkout complete page
-#    And Fancy Robo-Cowboy appear, yeehaaa!!!

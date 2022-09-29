@@ -7,16 +7,18 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import swaglabs.Pages.CartPage;
 import swaglabs.Pages.InventoryPage;
+import swaglabs.Pages.LoginPage;
 
 public class CartManagement {
 
     InventoryPage inv;
+    CartPage cart;
+    LoginPage login;
+
     @When("I click Add to Cart on {string}")
     public void iClickAddToCartOn(String item){
         inv.addToCart(item);
     }
-
-    CartPage cart;
 
     @Then("Cart icon should show total ammount of item {string}")
     public void cartIconShouldShowTotalAmmountOfAddedItem(String status) {
@@ -27,17 +29,22 @@ public class CartManagement {
         }else {
             Assert.assertEquals(0, inv.countItem());
         }
+        inv.reset();
     }
 
     @When("I click cart button")
     public void iClickCartButton() {
         inv.clickCart();
-        //Assert.assertEquals("https://www.saucedemo.com/cart.html", inv.verifyCart());
+        Assert.assertEquals("https://www.saucedemo.com/cart.html", inv.verifyCart());
     }
 
     @Given("I already add item {string}")
     public void iAlreadyAddItem(String item) {
-        inv.fullLogin();
+        login.reset();
+        login.open();
+        login.inputUsername("standard_user");
+        login.inputPassword("secret_sauce");
+        login.clickLoginButton();
         inv.addToCart(item);
     }
 
@@ -46,12 +53,30 @@ public class CartManagement {
         cart.verifyCartPage();
     }
 
-    @And("I get list of added item")
-    public void iGetListOfAddedItem() {
+    @And("I get {string} added to cart")
+    public void iGetListOfAddedItem(String item) {
+        Assert.assertEquals(item, cart.verifyCartItem());
+        login.reset();
     }
 
     @When("I click Remove on {string}")
     public void iClickRemoveOn(String item) {
         inv.removeCart(item);
+    }
+
+    @Then("The {string} button on {string} appear")
+    public void theButtonOnAppear(String button, String item) {
+        inv.verifyButton(button, item);
+        login.reset();
+    }
+
+    @And("I click Continue Shopping")
+    public void iClickContinueShopping() {
+        cart.contShopping();
+    }
+
+    @Then("I should redirected to Inventory Page")
+    public void iShouldRedirectedToInventoryPage() {
+        Assert.assertEquals("https://www.saucedemo.com/inventory.html", inv.verifyLoggedIn());
     }
 }
